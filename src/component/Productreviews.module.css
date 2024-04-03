@@ -1,0 +1,100 @@
+.other_options {
+    max-width: 80%;
+    margin: auto;
+}
+
+.option_headings h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom:30px;
+    margin-top: 80px;
+}
+
+.arrivals_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.image_names img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.image_names p:first-of-type {
+    font-family: satoshi;
+    font-weight: bold;
+    font-size: 20px;
+    justify-content: left;
+    width: 100%;
+}
+
+.image_names p:last-child {
+    color: #FFC633;
+    margin-top: 5px;
+}
+
+.image_names span {
+    color: black;
+    font-size: 11px;
+    margin-left: 5px;
+    font-family: satoshi;
+}
+
+.eachArrivals {
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.arrival_price {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.arrival_price p {
+    margin-right: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.arrival_price p:nth-of-type(2) {
+    color: #b1adad;
+    text-decoration: line-through;
+}
+
+.arrival_price p:nth-of-type(3) {
+    background-color: #f7c6c6;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 25px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 3px;
+    font-family: satoshi;
+    color: #FF3333;
+}
+
+.viewall_button {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.viewall_button button {
+    text-align: center;
+    border-radius: 40px;
+    border: 1px solid #d1cfcf;
+    width: 200px;
+    height: 50px;
+    font-family: satoshi;
+    font-size: 18px;
+    background-color: #fff;
+}

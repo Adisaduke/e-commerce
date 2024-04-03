@@ -47,6 +47,11 @@
 }
 
 
+.customer_verified {
+    color: #008000;
+  }
+  
+
 
 
 @media screen and (max-width: 768px) {
