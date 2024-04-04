@@ -165,3 +165,153 @@ background-color:#fff
 }
 
 
+
+
+
+
+
+@media screen and (max-width: 676px) {
+  .review_container {
+    display: block;
+  }
+.review_right div {
+  margin-left: 0;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+.customer_grid {
+  display: block;
+}
+
+.customer_box {
+  margin-bottom: 15px;
+}
+}
+
+
+@media screen and (max-width: 425px) {
+  .equalizer {
+    margin-left: 6px;
+    margin-top: 5px;
+    width: 13px;
+}
+
+
+.review_right div:first-of-type {
+  background-color: #a2a3a5;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.details_review_button button {
+width: 90px;
+height: 30px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 10px;
+}
+  
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+   padding-left: 15px;
+    width: 90px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: satoshi;
+  }
+  
+  option {
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 330px) {
+  .equalizer {
+    margin-left: 6px;
+    margin-top: 5px;
+    width: 13px;
+}
+
+
+.review_right div:first-of-type {
+  background-color: #a2a3a5;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.details_review_button button {
+    width: 70px;
+    height: 25px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 8px;
+}
+  
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+   padding-left: 9px;
+    width: 70px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: satoshi;
+  }
+  
+  option {
+    font-size: 12px;
+  }
+
+  .select_wrapper::after {
+    content: '\25BC'; /* Downward arrow */
+    position: absolute;
+    top: 44%;
+    right: 12px;
+    transform: translateY(-50%);
+  }
+
+  .load_more_button button {
+    width: 120px;
+    font-size: 10px;
+  }
+}
+
+
+@media screen and (max-width: 186px) {
+  .load_more_button button {
+    width: 90px;
+    font-size: 9px;
+  }
+}
+
+
+
+
+
+
+
+
+

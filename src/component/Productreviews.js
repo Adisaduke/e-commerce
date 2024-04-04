@@ -6,6 +6,7 @@ import image12 from "./Assets/image 12.png";
 import image13 from "./Assets/image 13.png";
 import image14 from "./Assets/image 14.png";
 import styles from "./Productreviews.module.css";
+import { motion } from "framer-motion";
 
 function Productreviews() {
   const TOP_SELLING = [
@@ -52,9 +53,9 @@ function Productreviews() {
             {TOP_SELLING.map((newArrival, index) => (
               <div className={styles.eachArrivals} key={index}>
                 <div className={styles.image_names}>
-                  <div whileHover={{ scale: 1.1 }}>
+                  <motion.div whileHover={{ scale: 1.1 }}>
                     <img src={newArrival.image} alt={newArrival.product_name} />
-                  </div>
+                  </motion.div>
                   <p>{newArrival.product_name}</p>
                   <p>
                     ★★★★<span>4.5/5</span>

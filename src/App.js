@@ -13,14 +13,14 @@ import Layout from "./Layout";
 function App() {
   return (
     <div>
-      {/* <Layout>
+      <Layout>
         <Home />
         <Newarrivals />
         <Topsellings />
         <Category />
         <Customer />
-      </Layout> */}
-      <Productreviews />
+        {/* <Productreviews /> */}
+      </Layout>
     </div>
   );
 }

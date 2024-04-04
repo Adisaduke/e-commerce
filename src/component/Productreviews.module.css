@@ -98,3 +98,30 @@
     font-size: 18px;
     background-color: #fff;
 }
+
+
+
+
+@media screen and (max-width: 768px) {
+    .arrivals_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    
+    .newarrivals {
+        max-width: 90%;
+        margin: auto;
+    }
+
+    .arrival_price {
+        margin-bottom: 40px;
+    }
+
+    .arrivals_headings p {
+        justify-content: center;
+        text-align: center;
+    }
+
+}

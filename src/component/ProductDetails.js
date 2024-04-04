@@ -1,30 +1,14 @@
 import React from "react";
 import styles from "./ProductDetails.module.css";
 import detail1 from "./Assets/detail1.png";
-import detail2 from "./Assets/detail2.png";
-import detail3 from "./Assets/detail3.png";
-import detail4 from "./Assets/detail4.png";
 import color from "./Assets/color.png";
 
 const Productdetails = () => {
   return (
     <div>
       <div className={styles.product_details_container}>
-        <div className={styles.left_details}>
-          <div className={styles.left_3_image}>
-            <div className={styles.each_image_div}>
-              <img src={detail2} alt={detail2} />
-            </div>
-            <div className={styles.each_image_div}>
-              <img src={detail4} alt={detail4} />
-            </div>
-            <div className={styles.each_image_div}>
-              <img src={detail3} alt={detail3} />
-            </div>
-          </div>
-          <div className={styles.right_single_image}>
-            <img src={detail1} alt={detail1} />
-          </div>
+        <div className={styles.right_single_image}>
+          <img src={detail1} alt={detail1} />
         </div>
         <div className={styles.right_details}>
           <div className={styles.top_details}>
