@@ -29,7 +29,7 @@ function Allreviews() {
           <div>
             <SlEqualizer className={styles.equalizer} />
           </div>
-          <div class={styles.select_wrapper}>
+          <div className={styles.select_wrapper}>
             <select>
               <option value="option1">Latest</option>
               <option value="option2">Popular</option>
