@@ -1,25 +1,18 @@
-import Allreviews from "./component/Allreviews";
-import Category from "./component/Category";
-import Customer from "./component/Customer";
-import Footer from "./component/Footer";
-import Header from "./component/Header";
-import Home from "./component/Home";
-import Newarrivals from "./component/Newarrivals";
-import Productreviews from "./component/Productreviews";
-import Topsellings from "./component/Topsellings";
-import Comments from "../src/component/Arrays/Comments";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
+import Homepage from "./Homepage";
+import Productreviews from "./component/Productreviews";
 
 function App() {
   return (
     <div>
       <Layout>
-        <Home />
-        <Newarrivals />
-        <Topsellings />
-        <Category />
-        <Customer />
-        {/* <Productreviews /> */}
+        <Router>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/product" element={<Productreviews />} />
+          </Routes>
+        </Router>
       </Layout>
     </div>
   );
