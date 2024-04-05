@@ -3,6 +3,7 @@ import styles from "./Topsellings.module.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import PRODUCT from "./Arrays/Products";
+import { Link } from "react-router-dom";
 
 const Topsellings = () => {
   const [randomProduct, setRandomProduct] = useState([]);
@@ -92,13 +93,15 @@ const Topsellings = () => {
         animate={containerInView ? "visible" : "hidden"}
         className={styles.arrivals_container}
       >
-        {randomProduct.map((newArrival, index) => (
-          <div className={styles.eachArrivals} key={index}>
+        {randomProduct.map((newArrival) => (
+          <div className={styles.eachArrivals} key={newArrival.id}>
             <div className={styles.image_names}>
-              <motion.div whileHover={{ scale: 1.1 }}>
-                <img src={newArrival.image} alt={newArrival.product_name} />
-              </motion.div>
-              <p>{newArrival.product_name}</p>
+              <Link to={`/product/${newArrival.id}`}>
+                <motion.div whileHover={{ scale: 1.1 }}>
+                  <img src={newArrival.image} alt={newArrival.product_name} />
+                </motion.div>
+                <p>{newArrival.product_name}</p>
+              </Link>
               <p>
                 ★★★★<span>4.5/5</span>
               </p>

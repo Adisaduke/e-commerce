@@ -1,48 +1,32 @@
-import React from "react";
-import Productdetails from "./ProductDetails";
+import { React, useState, useEffect } from "react";
 import Allreviews from "./Allreviews";
-import image11 from "./Assets/image 11.png";
-import image12 from "./Assets/image 12.png";
-import image13 from "./Assets/image 13.png";
-import image14 from "./Assets/image 14.png";
 import styles from "./Productreviews.module.css";
 import { motion } from "framer-motion";
+import PRODUCT from "./Arrays/Products";
 
 function Productreviews() {
-  const TOP_SELLING = [
-    {
-      product_name: "T-shirt with Tape Details",
-      image: image11,
-      ratings: 5,
-      price: "$120",
-    },
-    {
-      product_name: "Skinny Fit Jeans",
-      image: image12,
-      ratings: 4,
-      price: "$240",
-      previous_price: "$260",
-      discount: "-20%",
-    },
-    {
-      product_name: "Checkered Shirt",
-      image: image13,
-      ratings: 4,
-      price: "$180",
-    },
-    {
-      product_name: "Sleeve Striped T-shirt",
-      image: image14,
-      ratings: 5,
-      price: "$130",
-      previous_price: "$160",
-      discount: "-30%",
-    },
-  ];
+  const [randomProduct, setRandomProduct] = useState([]);
+
+  useEffect(() => {
+    const shuffledProducts = shuffleArray(PRODUCT);
+    const selectedProducts = shuffledProducts.slice(0, 4);
+    setRandomProduct(selectedProducts);
+  }, []);
+
+  const shuffleArray = (array) => {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
+    return shuffledArray;
+  };
 
   return (
     <div>
-      <Productdetails />
       <Allreviews />
       <div>
         <div className={styles.other_options}>
@@ -50,7 +34,7 @@ function Productreviews() {
             <h1>YOU MIGHT ALSO LIKE</h1>
           </div>
           <div className={styles.arrivals_container}>
-            {TOP_SELLING.map((newArrival, index) => (
+            {randomProduct.map((newArrival, index) => (
               <div className={styles.eachArrivals} key={index}>
                 <div className={styles.image_names}>
                   <motion.div whileHover={{ scale: 1.1 }}>

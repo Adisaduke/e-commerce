@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Homepage from "./Homepage";
-import Productreviews from "./component/Productreviews";
+import Productdetails from "./component/ProductDetails";
 
 function App() {
   return (
@@ -9,8 +9,8 @@ function App() {
       <Layout>
         <Router>
           <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/product" element={<Productreviews />} />
+            <Route exact path="/" element={<Homepage />} />
+            <Route path="/product/:id" element={<Productdetails />} />
           </Routes>
         </Router>
       </Layout>
