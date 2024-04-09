@@ -1,16 +1,22 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Allreviews from "./Allreviews";
 import styles from "./Productreviews.module.css";
 import { motion } from "framer-motion";
 import PRODUCT from "./Arrays/Products";
+import { useNavigate } from "react-router-dom";
 
 function Productreviews() {
   const [randomProduct, setRandomProduct] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const shuffledProducts = shuffleArray(PRODUCT);
     const selectedProducts = shuffledProducts.slice(0, 4);
     setRandomProduct(selectedProducts);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   const shuffleArray = (array) => {
@@ -25,6 +31,11 @@ function Productreviews() {
     return shuffledArray;
   };
 
+  const handleProductLinkClick = (productId) => {
+    navigate(`/product/${productId}`);
+    window.location.reload();
+  };
+
   return (
     <div>
       <Allreviews />
@@ -37,7 +48,10 @@ function Productreviews() {
             {randomProduct.map((newArrival, index) => (
               <div className={styles.eachArrivals} key={index}>
                 <div className={styles.image_names}>
-                  <motion.div whileHover={{ scale: 1.1 }}>
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => handleProductLinkClick(newArrival.id)}
+                  >
                     <img src={newArrival.image} alt={newArrival.product_name} />
                   </motion.div>
                   <p>{newArrival.product_name}</p>

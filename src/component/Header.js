@@ -7,6 +7,7 @@ import { TiThMenu } from "react-icons/ti";
 import { IoIosSearch } from "react-icons/io";
 
 const Header = () => {
+  const [signUpShow, setSignUpShow] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [prevIsMobile, setPrevIsMobile] = useState(false); // Track previous mobile state
@@ -15,19 +16,21 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const SignupButtonCancle = () => {
+    setSignUpShow(false);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       setIsMobile(screenWidth <= 767);
 
-      // Close the menu if switching from desktop to mobile view
       if (!prevIsMobile && screenWidth <= 767 && menuOpen) {
         setMenuOpen(false);
       }
-      setPrevIsMobile(screenWidth <= 768); // Update previous mobile state
+      setPrevIsMobile(screenWidth <= 768);
     };
 
-    // Initial check for mobile on component mount
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -35,20 +38,21 @@ const Header = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [menuOpen, prevIsMobile]); // Include menuOpen and prevIsMobile in the dependency array
-
+  }, [menuOpen, prevIsMobile]);
   return (
     <div>
       <div className={styles.signup_container}>
-        <div className={styles.signup_message}>
-          <div className={styles.message_ss}>
-            <p>Sign up and get 20% off to your first order.</p>
-            <p className={styles.sign_up}>Sign Up Now</p>
+        {signUpShow && (
+          <div className={styles.signup_message}>
+            <div className={styles.message_ss}>
+              <p>Sign up and get 20% off to your first order.</p>
+              <p className={styles.sign_up}>Sign Up Now</p>
+            </div>
+            <p className={styles.signup_cancle}>
+              <MdOutlineCancel onClick={SignupButtonCancle} />
+            </p>
           </div>
-          <p className={styles.signup_cancle}>
-            <MdOutlineCancel />
-          </p>
-        </div>
+        )}
       </div>
       <div className={styles.navbar_container}>
         <div className={styles.left_side_menu}>
@@ -61,7 +65,7 @@ const Header = () => {
             )}
             <p>SHOP.CO</p>
           </div>
-          {(!isMobile || menuOpen) && ( // Show menu on screens larger than 768px or if menu is open
+          {(!isMobile || menuOpen) && (
             <div className={styles.menu_option}>
               <p>Shop</p>
               <p>On Sale</p>
