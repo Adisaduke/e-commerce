@@ -1,3 +1,92 @@
+.cart_container {
+  max-width: 80%;
+  margin: auto;
+}
+
+.cart_headings h1 {
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-weight: bold;
+font-size: 30px;
+margin-bottom: 30px;
+}
+
+.cart_content {
+  display: flex;
+}
+
+.delete_icon {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 70px;
+  color: red;
+  font-size: 20px;
+}
+
+.cart_left {
+  flex: 0 0 65%;
+  margin-right: 10px;
+}
+
+.cart_details_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart_left_left {
+  display: flex;
+}
+
+.cart_image {
+  margin-right: 20px;
+}
+
+.cart_image img {
+  width: 125px;
+  height: 125px;
+  border-radius: 8px;
+}
+
+.cart_items p:first-of-type {
+font-weight: bold;
+font-size: 20px;
+font-family: satoshi;
+}
+
+.cart_items p {
+  font-family: satoshi;
+  font-size: 16px;
+  margin-bottom: 7px;
+}
+
+.cart_items p:last-child {
+  font-size: 23px;
+  font-family: satoshi;
+  font-weight: bold;
+  margin-top: 17px;
+}
+
+
+.cart_right {
+  flex: 0 0 35%;
+  margin-left: 10px;
+}
+
+.order_summary {
+font-size: 20px;
+font-weight: bold;
+}
+
+.order_content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.cart_order_span {
+  margin-left: auto;
+}
+
+
 .add_minus_button {
     display: flex;
     margin-top: 10px;
