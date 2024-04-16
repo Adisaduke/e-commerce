@@ -5,8 +5,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import { IoIosSearch } from "react-icons/io";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ cartItems }) => {
   const [signUpShow, setSignUpShow] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -87,9 +88,12 @@ const Header = () => {
             </div>
           )}
           <div className={styles.cart_profile}>
-            <p>
-              <FaShoppingCart />
-            </p>
+            <Link to="/cart">
+              <p>
+                <FaShoppingCart />
+                <span>{cartItems.length}</span>
+              </p>
+            </Link>
             <p>
               <FaUser />
             </p>

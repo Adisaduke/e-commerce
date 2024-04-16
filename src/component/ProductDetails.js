@@ -6,7 +6,7 @@ import color from "./Assets/color.png";
 import PRODUCT from "./Arrays/Products";
 import Productreviews from "./Productreviews";
 
-const Productdetails = () => {
+const Productdetails = ({ addToCart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -89,7 +89,7 @@ const Productdetails = () => {
                 <button className={styles.remove_button}>-</button>
               </div>
               <div className={styles.add_to_cart}>
-                <button>Add to Cart</button>
+                <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             </div>
           </div>

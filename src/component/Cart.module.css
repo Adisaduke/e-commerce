@@ -1,6 +1,17 @@
-.cart_container {
+.everything {
   max-width: 80%;
   margin: auto;
+}
+
+
+.card_containers {
+  margin: 20px 30px;
+}
+
+.cart_horizontal_top {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  opacity: 80%;
 }
 
 .cart_headings h1 {
@@ -23,6 +34,10 @@ margin-bottom: 30px;
   font-size: 20px;
 }
 
+.card_wrapper {
+  margin: 10px; /* Adjust margin as needed */
+}
+
 .cart_left {
   flex: 0 0 65%;
   margin-right: 10px;
@@ -31,7 +46,13 @@ margin-bottom: 30px;
 .cart_details_container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 15px;
+  margin-top: 25px;
 }
+
+/* .card_containers {
+  margin-bottom: 20px;
+} */
 
 .cart_left_left {
   display: flex;
@@ -77,13 +98,62 @@ font-size: 20px;
 font-weight: bold;
 }
 
+.order_content {
+  display: flex;
+  flex-direction: column;
+}
+
 .order_content p {
   font-size: 16px;
   margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
 }
 
-.cart_order_span {
+.cart_details_discount {
+color: red;
+font-size: 16px;
+margin-left: 10px;
+}
+
+.cart_order_span   {
   margin-left: auto;
+  font-weight: bold;
+}
+
+.order_aply_buttton input {
+width: 150px;
+height: 25px;
+border-radius: 40px;
+}
+
+.order_aply_buttton button {
+  height: 30px;
+  margin-left: 25px;
+border-radius: 40px;
+width: 80px;
+background-color: #000;
+border: none;
+color: #fff;
+font-size: 15px;
+font-family: satoshi;
+}
+
+.checkout_order_button button {
+  height: 30px;
+border-radius: 40px;
+width: 100%;
+margin-top: 20px;
+background-color: #000;
+border: none;
+color: #fff;
+font-size: 18px;
+font-family: satoshi;
+}
+
+.order_content p:nth-child(3) span {
+  color: red;
 }
 
 
@@ -111,4 +181,8 @@ font-weight: bold;
   .item_count {
     font-size: 18px;
     padding: 0 10px;
+  }
+
+  .cart_horizontal_line {
+    opacity: 70%;
   }
