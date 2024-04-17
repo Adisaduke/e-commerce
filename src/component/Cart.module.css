@@ -32,6 +32,7 @@ margin-bottom: 30px;
   margin-bottom: 70px;
   color: red;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .card_wrapper {
@@ -185,4 +186,11 @@ font-family: satoshi;
 
   .cart_horizontal_line {
     opacity: 70%;
+  }
+
+  .no_prouct_in_cart {
+    text-align: center;
+    font-size: 30px;
+    max-width: 50%;
+    margin: auto;
   }

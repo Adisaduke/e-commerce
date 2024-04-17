@@ -8,6 +8,7 @@
     margin-bottom: 50px;
 }
 
+
 .arrivals_headings p {
     text-align: center;
     color: #000;
@@ -34,9 +35,14 @@
     justify-content: left;
 }
 
-.image_names p:last-child {
+.ratings_styles {
     color: #FFC633;
     margin-top: 5px;
+}
+
+.link {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 .image_names span {

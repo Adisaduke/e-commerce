@@ -96,13 +96,13 @@ const Topsellings = () => {
         {randomProduct.map((newArrival) => (
           <div className={styles.eachArrivals} key={newArrival.id}>
             <div className={styles.image_names}>
-              <Link to={`/product/${newArrival.id}`}>
+              <Link to={`/product/${newArrival.id}`} className={styles.link}>
                 <motion.div whileHover={{ scale: 1.1 }}>
                   <img src={newArrival.image} alt={newArrival.product_name} />
                 </motion.div>
                 <p>{newArrival.product_name}</p>
               </Link>
-              <p>
+              <p className={styles.ratings_styles}>
                 ★★★★<span>4.5/5</span>
               </p>
             </div>

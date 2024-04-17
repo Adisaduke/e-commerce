@@ -6,27 +6,26 @@ import Productdetails from "./component/ProductDetails";
 import Cart from "./component/Cart";
 
 function App() {
-  // Initialize cart items with the items stored in local storage, if any
   const [cartItems, setCartItems] = useState(() => {
     const storedCartItems = localStorage.getItem("cartItems");
     return storedCartItems ? JSON.parse(storedCartItems) : [];
   });
 
-  // Function to add an item to the cart
   const addToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      return;
+    }
     setCartItems([...cartItems, item]);
-    console.log("Item added to cart:", item);
   };
 
-  // Function to remove an item from the cart
   const removeFromCart = (itemToRemove) => {
     setCartItems(cartItems.filter((item) => item.id !== itemToRemove.id));
   };
 
-  // Save cart items to local storage whenever cartItems change
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]); // Triggered whenever cartItems change
+  }, [cartItems]);
 
   return (
     <Router>

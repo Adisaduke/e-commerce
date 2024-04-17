@@ -42,61 +42,75 @@ const Header = ({ cartItems }) => {
   }, [menuOpen, prevIsMobile]);
   return (
     <div>
-      <div className={styles.signup_container}>
-        {signUpShow && (
-          <div className={styles.signup_message}>
-            <div className={styles.message_ss}>
-              <p>Sign up and get 20% off to your first order.</p>
-              <p className={styles.sign_up}>Sign Up Now</p>
-            </div>
-            <p className={styles.signup_cancle}>
-              <MdOutlineCancel onClick={SignupButtonCancle} />
-            </p>
-          </div>
-        )}
-      </div>
-      <div className={styles.navbar_container}>
-        <div className={styles.left_side_menu}>
-          <div className={styles.shop_name}>
-            {isMobile && (
-              <TiThMenu
-                className={styles.hamburger_menu}
-                onClick={toggleMenu}
-              />
-            )}
-            <p>SHOP.CO</p>
-          </div>
-          {(!isMobile || menuOpen) && (
-            <div className={styles.menu_option}>
-              <p>Shop</p>
-              <p>On Sale</p>
-              <p>New Arrivals</p>
-              <p>Shop</p>
+      <div className={styles.fixed_header_container}>
+        <div className={styles.signup_container}>
+          {signUpShow && (
+            <div className={styles.signup_message}>
+              <div className={styles.message_ss}>
+                <p>Sign up and get 20% off to your first order.</p>
+                <p className={styles.sign_up}>Sign Up Now</p>
+              </div>
+              <p className={styles.signup_cancle}>
+                <MdOutlineCancel onClick={SignupButtonCancle} />
+              </p>
             </div>
           )}
         </div>
-        <div className={styles.right_side_menu}>
-          {isMobile ? (
-            <div className={styles.search_container}>
+        <div className={styles.navbar_container}>
+          <div className={styles.left_side_menu}>
+            <div className={styles.shop_name}>
+              {isMobile && (
+                <TiThMenu
+                  className={styles.hamburger_menu}
+                  onClick={toggleMenu}
+                />
+              )}
+              <Link
+                to="/"
+                style={{ color: "transparent", textDecoration: "none" }}
+              >
+                <p>SHOP.CO</p>
+              </Link>
+            </div>
+            {(!isMobile || menuOpen) && (
+              <div className={styles.menu_option}>
+                <p>Shop</p>
+                <p>On Sale</p>
+                <p>New Arrivals</p>
+                <p>Shop</p>
+              </div>
+            )}
+          </div>
+          <div className={styles.right_side_menu}>
+            {isMobile ? (
+              <div className={styles.search_container}>
+                <p>
+                  <IoIosSearch />
+                </p>
+              </div>
+            ) : (
+              <div className={styles.search_container}>
+                <input type="text" placeholder="Search for products..." />
+              </div>
+            )}
+            <div className={styles.cart_profile}>
+              <Link
+                to="/cart"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <p>
+                  <FaShoppingCart />
+                  {cartItems.length > 0 && (
+                    <span className={styles.product_number}>
+                      {cartItems.length}
+                    </span>
+                  )}
+                </p>
+              </Link>
               <p>
-                <IoIosSearch />
+                <FaUser />
               </p>
             </div>
-          ) : (
-            <div className={styles.search_container}>
-              <input type="text" placeholder="Search for products..." />
-            </div>
-          )}
-          <div className={styles.cart_profile}>
-            <Link to="/cart">
-              <p>
-                <FaShoppingCart />
-                <span>{cartItems.length}</span>
-              </p>
-            </Link>
-            <p>
-              <FaUser />
-            </p>
           </div>
         </div>
       </div>

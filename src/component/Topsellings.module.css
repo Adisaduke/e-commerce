@@ -36,9 +36,14 @@
     width: 100%;
 }
 
-.image_names p:last-child {
+.ratings_styles {
     color: #FFC633;
     margin-top: 5px;
+}
+
+.link {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 .image_names span {
