@@ -4,6 +4,7 @@ import Layout from "./component/ui/Layout";
 import Homepage from "./component/ui/Homepage";
 import Productdetails from "./component/ProductDetails";
 import Cart from "./component/Cart";
+import Login from "./component/ui/Login";
 
 function App() {
   const [cartItems, setCartItems] = useState(() => {
@@ -28,23 +29,25 @@ function App() {
   }, [cartItems]);
 
   return (
-    <Router>
-      <Layout cartItems={cartItems}>
-        <Routes>
-          <Route exact path="/" element={<Homepage />} />
-          <Route
-            path="/cart"
-            element={
-              <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
-            }
-          />
-          <Route
-            path="/product/:id"
-            element={<Productdetails addToCart={addToCart} />}
-          />
-        </Routes>
-      </Layout>
-    </Router>
+    // <Router>
+    //   <Layout cartItems={cartItems}>
+    //     <Routes>
+    //       <Route exact path="/" element={<Homepage />} />
+    //       <Route
+    //         path="/cart"
+    //         element={
+    //           <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+    //         }
+    //       />
+    //       <Route
+    //         path="/product/:id"
+    //         element={<Productdetails addToCart={addToCart} />}
+    //       />
+    //     </Routes>
+    //   </Layout>
+    // </Router>
+
+    <Login />
   );
 }
 

@@ -7,11 +7,30 @@ import { Link } from "react-router-dom";
 
 const Topsellings = () => {
   const [randomProduct, setRandomProduct] = useState([]);
+  const localStorageKey = "selectedTopSellingProducts";
 
   useEffect(() => {
+    const storedProducts = JSON.parse(localStorage.getItem(localStorageKey));
+    const storedTimestamp = parseInt(
+      localStorage.getItem("topSellingTimestamp")
+    );
+
+    if (storedProducts && storedTimestamp) {
+      const currentTime = new Date().getTime();
+      const twentyFourHours = 24 * 60 * 60 * 1000;
+
+      if (currentTime - storedTimestamp < twentyFourHours) {
+        setRandomProduct(storedProducts);
+        return;
+      }
+    }
+
     const shuffledProducts = shuffleArray(PRODUCT);
     const selectedProducts = shuffledProducts.slice(0, 4);
     setRandomProduct(selectedProducts);
+
+    localStorage.setItem(localStorageKey, JSON.stringify(selectedProducts));
+    localStorage.setItem("topSellingTimestamp", new Date().getTime());
   }, []);
 
   const shuffleArray = (array) => {

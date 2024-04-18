@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Footer.module.css";
 import { FaFacebook } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
+import Alert from "../component/ui/Alert";
 
 const Footer = () => {
+  const [emailInput, setEmailInput] = useState("");
+  const [emailValid, setEmailValid] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput);
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
+  const EmailInputHandler = (e) => {
+    const emailtyped = e.target.value;
+    setEmailInput(emailtyped);
+  };
+
+  const NewsletterSubmitHandler = () => {
+    if (!isValid) {
+      setEmailValid(false);
+      return;
+    }
+
+    setEmailValid(true);
+    setEmailInput("");
+
+    setTimeout(() => {
+      setShowAlert(true);
+    }, 200);
+  };
   return (
     <div className={styles.footer}>
       <div className={styles.foooter_top}>
@@ -16,12 +44,26 @@ const Footer = () => {
               <br /> OUR LATEST OFFERS
             </p>
           </div>
+          {showAlert && (
+            <Alert
+              message="Thanks for joining us!"
+              onClose={handleCloseAlert}
+            />
+          )}
           <div className={styles.newsletter_container}>
             <input
               placeholder="&#xf0e0; Enter your email address"
               type="text"
+              value={emailInput}
+              onChange={EmailInputHandler}
+              className={!emailValid ? styles.newsletter_error : ""}
             />
-            <button>Subscribe to Newsletter</button>
+            {!emailValid && (
+              <p className={styles.email_eror_message}>Enter a valid email</p>
+            )}
+            <button onClick={NewsletterSubmitHandler}>
+              Subscribe to Newsletter
+            </button>
           </div>
         </div>
       </div>

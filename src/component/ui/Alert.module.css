@@ -1,0 +1,39 @@
+/* CustomAlert.module.css */
+.alert {
+    position: fixed;
+    top: -100px; /* Initially positioned above the viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #8d8c8c; /* Red background color */
+    color: #fff; /* White text color */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: top 0.5s ease;
+    width: 30%;
+    height: 30%; /* Smooth transition for the animation */
+  }
+  
+  .show {
+    top: 0; /* Position the alert 50px from the top of the viewport */
+  }
+
+  .alert_message {
+    font-size: 32px;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+
+  .alert_button {
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    position: absolute;
+    right: 0;
+    margin-right: 40px;
+    margin-top: 20px;
+  }

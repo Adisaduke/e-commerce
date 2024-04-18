@@ -8,12 +8,31 @@ import { Link } from "react-router-dom";
 const Newarrivals = () => {
   const [randomProduct, setRandomProduct] = useState([]);
 
+  const localStorageKey = "selectedNewArrivalProducts";
+
   useEffect(() => {
+    const storedProducts = JSON.parse(localStorage.getItem(localStorageKey));
+    const storedTimestamp = parseInt(
+      localStorage.getItem("newArrivalTimestamp")
+    );
+
+    if (storedProducts && storedTimestamp) {
+      const currentTime = new Date().getTime();
+      const twentyFourHours = 24 * 60 * 60 * 1000;
+
+      if (currentTime - storedTimestamp < twentyFourHours) {
+        setRandomProduct(storedProducts);
+        return;
+      }
+    }
+
     const shuffledProducts = shuffleArray(PRODUCT);
     const selectedProducts = shuffledProducts.slice(0, 4);
     setRandomProduct(selectedProducts);
-  }, []);
 
+    localStorage.setItem(localStorageKey, JSON.stringify(selectedProducts));
+    localStorage.setItem("newArrivalTimestamp", new Date().getTime());
+  }, []);
   const shuffleArray = (array) => {
     const shuffledArray = [...array];
     for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -90,7 +109,7 @@ const Newarrivals = () => {
         ref={containerRef}
         initial="hidden"
         variants={containerAnimationVariants}
-        animate={containerInView ? "visible" : "hidden"} // Animate only when in view
+        animate={containerInView ? "visible" : "hidden"}
         className={styles.arrivals_container}
       >
         {randomProduct.map((newArrival, index) => (

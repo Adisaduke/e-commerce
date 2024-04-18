@@ -1,15 +1,15 @@
 import React from "react";
 import { SlEqualizer } from "react-icons/sl";
 import styles from "./Allreviews.module.css";
-import COMMENTS from "./Arrays/Comments"; // Import the COMMENTS array
+import COMMENTS from "./Arrays/Comments";
 import { MdVerified } from "react-icons/md";
 import { useState } from "react";
 
 function Allreviews() {
-  const [displayedComments, setDisplayedComments] = useState(10); // Initial number of comments to display
+  const [displayedComments, setDisplayedComments] = useState(10);
 
   const showMoreComments = () => {
-    setDisplayedComments(displayedComments + 10); // Increment by 10 each time the button is clicked
+    setDisplayedComments(displayedComments + 10);
   };
 
   return (
