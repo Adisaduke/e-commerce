@@ -7,12 +7,12 @@ import { TiThMenu } from "react-icons/ti";
 import { IoIosSearch } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const Header = ({ cartItems, isLoggedIn }) => {
+const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
   const [signUpShow, setSignUpShow] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [prevIsMobile, setPrevIsMobile] = useState(false);
-  const [iconShow, setIconShow] = useState(false); // Track previous mobile state
+  const [isLoggedOut, setIsLoggedOut] = useState(false); // Track previous mobile state
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -20,6 +20,11 @@ const Header = ({ cartItems, isLoggedIn }) => {
 
   const SignupButtonCancle = () => {
     setSignUpShow(false);
+  };
+
+  const LogoutHandler = () => {
+    setIsLoggedIn(localStorage.getItem("isLoggedIn") === "false");
+    setIsLoggedOut(false);
   };
 
   useEffect(() => {
@@ -45,6 +50,7 @@ const Header = ({ cartItems, isLoggedIn }) => {
   useEffect(() => {
     if (isLoggedIn) {
       localStorage.setItem("isLoggedIn", "true");
+      setIsLoggedOut(true);
     } else {
       localStorage.removeItem("isLoggedIn");
     }
@@ -92,7 +98,11 @@ const Header = ({ cartItems, isLoggedIn }) => {
                 <p>On Sale</p>
                 <p>New Arrivals</p>
                 <p>Shop</p>
-                <p className={styles.logout_button}>Log out</p>
+                {isLoggedOut && (
+                  <p className={styles.logout_button} onClick={LogoutHandler}>
+                    Log out
+                  </p>
+                )}
               </div>
             )}
           </div>

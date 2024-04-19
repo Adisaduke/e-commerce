@@ -41,7 +41,11 @@ function App() {
         <Route
           path="/*"
           element={
-            <Layout cartItems={cartItems} isLoggedIn={isLoggedIn}>
+            <Layout
+              cartItems={cartItems}
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+            >
               <Routes>
                 <Route index element={<Homepage />} />
                 <Route
