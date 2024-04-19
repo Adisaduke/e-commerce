@@ -92,6 +92,7 @@ const Header = ({ cartItems, isLoggedIn }) => {
                 <p>On Sale</p>
                 <p>New Arrivals</p>
                 <p>Shop</p>
+                <p className={styles.logout_button}>Log out</p>
               </div>
             )}
           </div>
