@@ -11,6 +11,9 @@ function App() {
     const storedCartItems = localStorage.getItem("cartItems");
     return storedCartItems ? JSON.parse(storedCartItems) : [];
   });
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
 
   const addToCart = (item) => {
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -29,25 +32,37 @@ function App() {
   }, [cartItems]);
 
   return (
-    // <Router>
-    //   <Layout cartItems={cartItems}>
-    //     <Routes>
-    //       <Route exact path="/" element={<Homepage />} />
-    //       <Route
-    //         path="/cart"
-    //         element={
-    //           <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
-    //         }
-    //       />
-    //       <Route
-    //         path="/product/:id"
-    //         element={<Productdetails addToCart={addToCart} />}
-    //       />
-    //     </Routes>
-    //   </Layout>
-    // </Router>
-
-    <Login />
+    <Router>
+      <Routes>
+        <Route
+          path="/login"
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route
+          path="/*"
+          element={
+            <Layout cartItems={cartItems} isLoggedIn={isLoggedIn}>
+              <Routes>
+                <Route index element={<Homepage />} />
+                <Route
+                  path="/cart"
+                  element={
+                    <Cart
+                      cartItems={cartItems}
+                      removeFromCart={removeFromCart}
+                    />
+                  }
+                />
+                <Route
+                  path="/product/:id"
+                  element={<Productdetails addToCart={addToCart} />}
+                />
+              </Routes>
+            </Layout>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

@@ -7,11 +7,12 @@ import { TiThMenu } from "react-icons/ti";
 import { IoIosSearch } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const Header = ({ cartItems }) => {
+const Header = ({ cartItems, isLoggedIn }) => {
   const [signUpShow, setSignUpShow] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [prevIsMobile, setPrevIsMobile] = useState(false); // Track previous mobile state
+  const [prevIsMobile, setPrevIsMobile] = useState(false);
+  const [iconShow, setIconShow] = useState(false); // Track previous mobile state
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -40,22 +41,35 @@ const Header = ({ cartItems }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, [menuOpen, prevIsMobile]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      localStorage.setItem("isLoggedIn", "true");
+    } else {
+      localStorage.removeItem("isLoggedIn");
+    }
+  }, [isLoggedIn]);
+
   return (
     <div>
       <div className={styles.fixed_header_container}>
-        <div className={styles.signup_container}>
-          {signUpShow && (
-            <div className={styles.signup_message}>
-              <div className={styles.message_ss}>
-                <p>Sign up and get 20% off to your first order.</p>
-                <p className={styles.sign_up}>Sign Up Now</p>
+        {!isLoggedIn && (
+          <div className={styles.signup_container}>
+            {signUpShow && (
+              <div className={styles.signup_message}>
+                <div className={styles.message_ss}>
+                  <p>Sign up and get 20% off to your first order.</p>
+                  <Link to="login">
+                    <p className={styles.sign_up}>Sign Up Now</p>
+                  </Link>
+                </div>
+                <p className={styles.signup_cancle}>
+                  <MdOutlineCancel onClick={SignupButtonCancle} />
+                </p>
               </div>
-              <p className={styles.signup_cancle}>
-                <MdOutlineCancel onClick={SignupButtonCancle} />
-              </p>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
         <div className={styles.navbar_container}>
           <div className={styles.left_side_menu}>
             <div className={styles.shop_name}>
@@ -107,9 +121,13 @@ const Header = ({ cartItems }) => {
                   )}
                 </p>
               </Link>
-              <p>
-                <FaUser />
-              </p>
+              {isLoggedIn && (
+                <Link style={{ color: "inherit" }}>
+                  <p>
+                    <FaUser />
+                  </p>
+                </Link>
+              )}
             </div>
           </div>
         </div>

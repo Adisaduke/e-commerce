@@ -60,4 +60,21 @@
   .forgotPasswordLink:hover {
     color: #999;
   }
+
+  .backto_home_container {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .back_text {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .back_icon {
+    margin-top: 3px;
+    margin-right: 5px;
+    padding-top: 4px;
+  }
   
