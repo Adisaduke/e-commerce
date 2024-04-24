@@ -29,10 +29,11 @@ const Footer = () => {
 
     setEmailValid(true);
     setEmailInput("");
+    setShowAlert(true);
 
     setTimeout(() => {
-      setShowAlert(true);
-    }, 200);
+      setShowAlert(false);
+    }, 3000);
   };
   return (
     <div className={styles.footer}>
@@ -44,12 +45,7 @@ const Footer = () => {
               <br /> OUR LATEST OFFERS
             </p>
           </div>
-          {showAlert && (
-            <Alert
-              message="Thanks for joining us!"
-              onClose={handleCloseAlert}
-            />
-          )}
+          {showAlert && <Alert message="Thanks for joining us!" />}
           <div className={styles.newsletter_container}>
             <input
               placeholder="&#xf0e0; Enter your email address"
@@ -79,16 +75,28 @@ const Footer = () => {
               </p>
               <div className={styles.logo_container}>
                 <div>
-                  <FaFacebook />
+                  <a href="www.facebook.com">
+                    <FaFacebook className={styles.individual_social_page} />
+                  </a>
                 </div>
                 <div>
-                  <FaSquareXTwitter />
+                  <a href="www.twitter.com">
+                    <FaSquareXTwitter
+                      className={styles.individual_social_page}
+                    />
+                  </a>
                 </div>
                 <div>
-                  <FaSquareInstagram />
+                  <a href="www.instagram.com">
+                    <FaSquareInstagram
+                      className={styles.individual_social_page}
+                    />
+                  </a>
                 </div>
                 <div>
-                  <FaLinkedin />
+                  <a href="www.linkdin.com">
+                    <FaLinkedin className={styles.individual_social_page} />
+                  </a>
                 </div>
               </div>
             </div>

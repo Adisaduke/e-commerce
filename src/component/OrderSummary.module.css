@@ -1,0 +1,70 @@
+/* OrderSummary.module.css */
+
+.orderSummaryContainer {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 40%;
+    margin: auto;
+  }
+  
+  .orderSummaryTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .orderList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .orderItem {
+    margin-bottom: 10px;
+  }
+  
+  .orderItemName {
+    font-weight: bold;
+  }
+  
+  .orderItemPrice {
+    color: #007bff; /* Blue color for price */
+    font-weight: bold;
+  }
+  
+  .orderItemQuantity {
+    margin-left: 10px;
+  }
+  
+  .divider {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+  }
+  
+  .total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .totalLabel {
+    font-weight: bold;
+  }
+  
+  .totalPrice {
+    color: #007bff; /* Blue color for price */
+    font-weight: bold;
+  }
+  
+  .placeOrderButton {
+    background-color: #007bff; /* Blue color for button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .placeOrderButton:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }
+  

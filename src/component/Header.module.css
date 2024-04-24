@@ -14,6 +14,7 @@
 .signup_cancle {
     margin-bottom: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 .signup_message .signup_cancle {
@@ -120,7 +121,7 @@ color: rgb(255, 78, 78);
     justify-content: space-between;
 }
 
-.search_container input {
+.search_container .input {
     height: 12px;
     padding: 12px 16px 12px 16px;
     border-radius: 40px;

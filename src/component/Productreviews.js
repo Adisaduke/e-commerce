@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Allreviews from "./Allreviews";
 import styles from "./Productreviews.module.css";
 import { motion } from "framer-motion";
@@ -15,10 +15,6 @@ function Productreviews() {
     setRandomProduct(selectedProducts);
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const shuffleArray = (array) => {
     const shuffledArray = [...array];
     for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -33,7 +29,7 @@ function Productreviews() {
 
   const handleProductLinkClick = (productId) => {
     navigate(`/product/${productId}`);
-    window.location.reload();
+    window.scrollTo(0, 0); // Scroll to the top of the page
   };
 
   return (
@@ -60,7 +56,7 @@ function Productreviews() {
                   </p>
                 </div>
                 <div className={styles.arrival_price}>
-                  <p>{newArrival.price}</p>
+                  <p>${newArrival.price}</p>
                   <p>{newArrival.previous_price}</p>
                   {newArrival.discount ? (
                     <p className={styles.discount}>{newArrival.discount}</p>

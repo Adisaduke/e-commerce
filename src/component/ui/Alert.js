@@ -5,9 +5,7 @@ const CustomAlert = ({ message, onClose }) => {
   return (
     <div className={`${styles.alert} ${styles.show}`}>
       <p className={styles.alert_message}>{message}</p>
-      <button className={styles.alert_button} onClick={onClose}>
-        Close
-      </button>
+      {/* <button className={styles.alert_button} onClick={onClose}></button> */}
     </div>
   );
 };

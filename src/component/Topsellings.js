@@ -126,7 +126,7 @@ const Topsellings = () => {
               </p>
             </div>
             <div className={styles.arrival_price}>
-              <p>{newArrival.price}</p>
+              <p>${newArrival.price}</p>
               <p>{newArrival.previous_price}</p>
               {newArrival.discount ? (
                 <p className={styles.discount}>{newArrival.discount}</p>

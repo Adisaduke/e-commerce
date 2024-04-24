@@ -126,35 +126,25 @@
     margin-right: 10px;
 }
 
+.warning_message {
+    height: 40px;
+    width: 250px;
+    position: absolute;
+    right: 2%;
+    top: 10%;
+    background-color: rgb(210, 91, 91);
+    font-size: 1rem;
+    color: white;
+    padding-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
 .add_minus_button {
     display: flex;
     margin-top: 10px;
 }
 
-.add_minus{
-    display: flex;
-    align-items: center;
-  }
-  
-  .add_button,
-  .remove_button {
-    background-color: #6f7071;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 5px 10px;
-    margin: 0 5px;
-  }
-  
-  .item_count {
-    font-size: 18px;
-    padding: 0 10px;
-  }
-
-  .add_to_cart {
-    margin-left: 20px;
-  }
 
   .add_to_cart button {
     width:250px;

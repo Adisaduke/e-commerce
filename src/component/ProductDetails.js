@@ -6,7 +6,7 @@ import color from "./Assets/color.png";
 import PRODUCT from "./Arrays/Products";
 import Productreviews from "./Productreviews";
 
-const Productdetails = ({ addToCart }) => {
+const Productdetails = ({ addToCart, quantity, warning }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -35,6 +35,11 @@ const Productdetails = ({ addToCart }) => {
     <>
       <div>
         <div className={styles.product_details_container}>
+          {warning && (
+            <div className={styles.warning_message}>
+              Item is already added to the cart
+            </div>
+          )}
           <div className={styles.right_single_image}>
             <img src={image} alt={detail1} />
           </div>
@@ -46,7 +51,7 @@ const Productdetails = ({ addToCart }) => {
                 <span>4.5/5</span>
               </p>
               <div className={styles.details_prices}>
-                <p>{price}</p>
+                <p>${price}</p>
                 <p>{previous_price}</p>
                 <p>{discount}</p>
               </div>
@@ -83,13 +88,10 @@ const Productdetails = ({ addToCart }) => {
               <hr className={styles.details_horizontal_line} />
             </div>
             <div className={styles.add_minus_button}>
-              <div className={styles.add_minus}>
-                <button className={styles.add_button}>+</button>
-                <span className={styles.item_count}>0</span>
-                <button className={styles.remove_button}>-</button>
-              </div>
               <div className={styles.add_to_cart}>
-                <button onClick={() => addToCart(product)}>Add to Cart</button>
+                <button onClick={() => addToCart({ ...product, quantity })}>
+                  Add to Cart
+                </button>
               </div>
             </div>
           </div>

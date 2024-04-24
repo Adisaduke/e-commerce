@@ -9,6 +9,7 @@
 .category {
     display: flex;
     position: relative;
+    cursor: pointer;
 }
 
 .category p {

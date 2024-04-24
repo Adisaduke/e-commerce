@@ -5,6 +5,9 @@ import Homepage from "./component/ui/Homepage";
 import Productdetails from "./component/ProductDetails";
 import Cart from "./component/Cart";
 import Login from "./component/ui/Login";
+import LoginRequiredPage from "./component/ui/LoginRequiredPage";
+import Checkout from "./component/Checkout";
+import OrderSummary from "./component/Ordersummary";
 
 function App() {
   const [cartItems, setCartItems] = useState(() => {
@@ -14,10 +17,15 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
   );
+  const [warning, setWarning] = useState(false);
 
   const addToCart = (item) => {
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
     if (existingItem) {
+      setWarning(true);
+      setTimeout(() => {
+        setWarning(false);
+      }, 2000);
       return;
     }
     setCartItems([...cartItems, item]);
@@ -39,6 +47,11 @@ function App() {
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
         />
         <Route
+          path="/ordersummary"
+          element={<OrderSummary cartItems={cartItems} />}
+        />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route
           path="/*"
           element={
             <Layout
@@ -51,15 +64,22 @@ function App() {
                 <Route
                   path="/cart"
                   element={
-                    <Cart
-                      cartItems={cartItems}
-                      removeFromCart={removeFromCart}
-                    />
+                    isLoggedIn ? (
+                      <Cart
+                        cartItems={cartItems}
+                        setCartItems={setCartItems}
+                        removeFromCart={removeFromCart}
+                      />
+                    ) : (
+                      <LoginRequiredPage />
+                    )
                   }
                 />
                 <Route
                   path="/product/:id"
-                  element={<Productdetails addToCart={addToCart} />}
+                  element={
+                    <Productdetails warning={warning} addToCart={addToCart} />
+                  }
                 />
               </Routes>
             </Layout>

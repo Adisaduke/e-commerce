@@ -5,7 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import { IoIosSearch } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
   const [signUpShow, setSignUpShow] = useState(true);
@@ -13,6 +13,7 @@ const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [prevIsMobile, setPrevIsMobile] = useState(false);
   const [isLoggedOut, setIsLoggedOut] = useState(false); // Track previous mobile state
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -25,6 +26,7 @@ const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
   const LogoutHandler = () => {
     setIsLoggedIn(localStorage.getItem("isLoggedIn") === "false");
     setIsLoggedOut(false);
+    navigate("/");
   };
 
   useEffect(() => {
@@ -115,7 +117,11 @@ const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
               </div>
             ) : (
               <div className={styles.search_container}>
-                <input type="text" placeholder="Search for products..." />
+                <input
+                  className={styles.input}
+                  type="text"
+                  placeholder="Search for products..."
+                />
               </div>
             )}
             <div className={styles.cart_profile}>

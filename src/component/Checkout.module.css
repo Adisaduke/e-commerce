@@ -1,0 +1,85 @@
+
+
+.checkoutContainer {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+@media screen and (max-width: 768px) {
+  .checkoutContainer {
+    max-width: 90%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .inputGroup {
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    padding: 8px;
+  }
+}
+
+
+
+
+.inputGroup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+@media screen and (max-width: 480px) {
+  .inputGroup textarea {
+    width: 80%;
+  }
+}
