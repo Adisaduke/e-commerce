@@ -1,0 +1,218 @@
+.newarrivals {
+    max-width: 80%;
+    margin: auto;
+}
+
+.arrivals_headings {
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.arrivals_headings p {
+    text-align: center;
+    color: #000;
+    font-family: Impact, Haettenschweiler, 'Arial Bold', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    word-spacing: 15px;
+}
+
+.shop_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Two items per row */
+    grid-gap: 20px;
+  }
+.image_names img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.image_names p:first-of-type {
+    font-family: satoshi;
+    font-weight: bold;
+    font-size: 20px;
+    justify-content: left;
+    width: 100%;
+}
+
+.ratings_styles {
+    color: #FFC633;
+    margin-top: 5px;
+}
+
+.link {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.image_names span {
+    color: black;
+    font-size: 11px;
+    margin-left: 5px;
+    font-family: satoshi;
+}
+
+.eachArrivals {
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.arrival_price {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.arrival_price p {
+    margin-right: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.arrival_price p:nth-of-type(2) {
+    color: #b1adad;
+    text-decoration: line-through;
+}
+
+.arrival_price p:nth-of-type(3) {
+    background-color: #f7c6c6;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 25px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 3px;
+    font-family: satoshi;
+    color: #FF3333;
+}
+
+.viewall_button {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.viewall_button button {
+    text-align: center;
+    border-radius: 40px;
+    border: 1px solid #d1cfcf;
+    width: 200px;
+    height: 50px;
+    font-family: satoshi;
+    font-size: 18px;
+    background-color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .container h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .filterOptions,
+  .otherFilters,
+  .priceRange {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .filterOptions p,
+  .otherFilters p,
+  .priceRange p {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+  
+  .priceRange input[type="range"] {
+    width: 100%;
+    margin: 5px 0;
+    /* Add styles for slider using your preferred library or styles */
+  }
+  
+  .button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+
+
+@media screen and (max-width: 768px) {
+    .arrivals_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .newarrivals {
+        max-width: 90%;
+        margin: auto;
+    }
+
+    .arrival_price {
+        margin-bottom: 40px;
+    }
+
+    .arrivals_headings p {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .viewall_button {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .viewall_button button {
+        text-align: center;
+        border-radius: 40px;
+        border: 1px solid #d1cfcf;
+        width: 200px;
+        height: 50px;
+        font-family: satoshi;
+        font-size: 18px;
+        background-color: #fff;
+    }
+}
+
+
+@media screen and (max-width: 240px) {
+    .viewall_button {
+        max-width: 80%;
+        margin: auto;
+        margin-top: 25px;
+    }
+
+    .viewall_button button {
+        text-align: center;
+        border-radius: 40px;
+        border: 1px solid #d1cfcf;
+        width: 100%;
+        height: 50px;
+        font-family: satoshi;
+        font-size: 18px;
+        background-color: #fff;
+    }
+}

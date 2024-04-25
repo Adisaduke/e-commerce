@@ -96,7 +96,12 @@ const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
             </div>
             {(!isMobile || menuOpen) && (
               <div className={styles.menu_option}>
-                <p>Shop</p>
+                <Link
+                  style={{ color: "inherit", textDecoration: "none" }}
+                  to="shop"
+                >
+                  <p>Shop</p>
+                </Link>
                 <p>On Sale</p>
                 <p>New Arrivals</p>
                 <p>Shop</p>

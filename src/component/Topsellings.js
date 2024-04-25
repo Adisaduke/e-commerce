@@ -142,7 +142,9 @@ const Topsellings = () => {
         animate={buttonInView ? "visible" : "hidden"}
         className={styles.viewall_button}
       >
-        <button>View All</button>
+        <Link style={{ color: "inherit", textDecoration: "none" }} to="shop">
+          <button>View All</button>
+        </Link>
       </motion.div>
     </div>
   );

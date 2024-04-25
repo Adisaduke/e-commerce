@@ -142,7 +142,9 @@ const Newarrivals = () => {
         animate={buttonInView ? "visible" : "hidden"}
         className={styles.viewall_button}
       >
-        <button>View All</button>
+        <Link style={{ color: "inherit", textDecoration: "none" }} to="shop">
+          <button>View All</button>
+        </Link>
       </motion.div>
       <hr className={styles.newarrival_horizontal_line} />
     </div>

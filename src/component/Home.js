@@ -7,6 +7,7 @@ import zara from "./Assets/Zara.png";
 import gucci from "./Assets/gucci.png";
 import versace from "./Assets/versace.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const brandAnimationVariants = {
@@ -67,7 +68,12 @@ const Home = () => {
                 <br /> to brin out your individually and cater to your series of
                 style.
               </p>
-              <button>Shop Now</button>
+              <Link
+                style={{ color: "inherit", textDecoration: "none" }}
+                to="shop"
+              >
+                <button>Shop Now</button>
+              </Link>
             </div>
             <div className={styles.figure_container}>
               <div className={styles.brand_figure}>

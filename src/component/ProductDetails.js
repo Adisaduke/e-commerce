@@ -53,7 +53,7 @@ const Productdetails = ({ addToCart, quantity, warning }) => {
               <div className={styles.details_prices}>
                 <p>${price}</p>
                 <p>{previous_price}</p>
-                <p>{discount}</p>
+                {discount ? <p>{discount}</p> : null}
               </div>
               <p className={styles.details_text}>
                 This grphic t-shirt which is perfect for any occasion. Crafted

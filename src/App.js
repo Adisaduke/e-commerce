@@ -8,6 +8,7 @@ import Login from "./component/ui/Login";
 import LoginRequiredPage from "./component/ui/LoginRequiredPage";
 import Checkout from "./component/Checkout";
 import OrderSummary from "./component/Ordersummary";
+import Shop from "./component/Shop";
 
 function App() {
   const [cartItems, setCartItems] = useState(() => {
@@ -46,6 +47,7 @@ function App() {
           path="/login"
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
         />
+
         <Route
           path="/ordersummary"
           element={<OrderSummary cartItems={cartItems} />}
@@ -60,6 +62,7 @@ function App() {
               setIsLoggedIn={setIsLoggedIn}
             >
               <Routes>
+                <Route path="/shop" element={<Shop />} />
                 <Route index element={<Homepage />} />
                 <Route
                   path="/cart"
