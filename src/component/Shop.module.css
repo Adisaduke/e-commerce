@@ -1,10 +1,25 @@
+.filter_page_container {
+margin-top: 80px;
+}
+
+.shop_content {
+    display: flex;
+
+    margin-top: 70px;
+    max-width: 80%;
+    margin: auto;
+}
+
+.filter_side {
+    margin-right: 5px;
+}
+
 .newarrivals {
     max-width: 80%;
     margin: auto;
 }
 
 .arrivals_headings {
-    margin-top: 80px;
     margin-bottom: 50px;
 }
 
@@ -216,3 +231,34 @@
         background-color: #fff;
     }
 }
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .shop_grid {
+      grid-template-columns: repeat(3, 1fr); /* Display three items per column on smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .shop_grid {
+      grid-template-columns: repeat(2, 1fr); /* Display two items per column on even smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .shop_grid {
+      grid-template-columns: repeat(1, 1fr); /* Display one item per column on mobile devices */
+    }
+
+    .shop_content {
+        display: block;
+    }
+  }

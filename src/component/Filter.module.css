@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 100%; /* Allow the container to take the full width */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .container h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .search {
+    margin-bottom: 10px;
+    width: 100%; /* Make the search input take full width */
+  }
+  
+  .searchInput {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+  }
+  
+  .filterOptions,
+  .otherFilters {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%; /* Make the filter options take full width */
+  }
+  
