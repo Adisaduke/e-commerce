@@ -6,13 +6,21 @@ import { MdOutlineCancel } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import { IoIosSearch } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
+import PRODUCT from "./Arrays/Products";
 
-const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
+const Header = ({
+  cartItems,
+  isLoggedIn,
+  setIsLoggedIn,
+  setFilteredProducts,
+}) => {
   const [signUpShow, setSignUpShow] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [prevIsMobile, setPrevIsMobile] = useState(false);
-  const [isLoggedOut, setIsLoggedOut] = useState(false); // Track previous mobile state
+  const [isLoggedOut, setIsLoggedOut] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -57,6 +65,19 @@ const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
       localStorage.removeItem("isLoggedIn");
     }
   }, [isLoggedIn]);
+
+  const handleSearch = () => {
+    if (searchQuery.trim() !== "") {
+      const filtered = PRODUCT.filter((product) =>
+        product.product_name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    } else {
+      // If search query is empty, set filtered products to an empty array
+      setFilteredProducts([]);
+    }
+    setSearchQuery("");
+  };
 
   return (
     <div>
@@ -116,9 +137,17 @@ const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
           <div className={styles.right_side_menu}>
             {isMobile ? (
               <div className={styles.search_container}>
-                <p>
-                  <IoIosSearch />
-                </p>
+                <IoIosSearch
+                  className={styles.search_icon}
+                  onClick={handleSearch}
+                />
+                <input
+                  className={styles.input}
+                  type="text"
+                  placeholder="Search for products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
             ) : (
               <div className={styles.search_container}>
@@ -126,6 +155,12 @@ const Header = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
                   className={styles.input}
                   type="text"
                   placeholder="Search for products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <IoIosSearch
+                  className={styles.search_icon}
+                  onClick={handleSearch}
                 />
               </div>
             )}

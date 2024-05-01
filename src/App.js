@@ -9,6 +9,7 @@ import LoginRequiredPage from "./component/ui/LoginRequiredPage";
 import Checkout from "./component/Checkout";
 import OrderSummary from "./component/Ordersummary";
 import Shop from "./component/Shop";
+import Searchfiltered from "./component/Searchfiltered";
 
 function App() {
   const [cartItems, setCartItems] = useState(() => {
@@ -19,6 +20,7 @@ function App() {
     localStorage.getItem("isLoggedIn") === "true"
   );
   const [warning, setWarning] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   const addToCart = (item) => {
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -40,6 +42,8 @@ function App() {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  console.log("Filtered Products:", filteredProducts);
+
   return (
     <Router>
       <Routes>
@@ -60,10 +64,23 @@ function App() {
               cartItems={cartItems}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
+              setFilteredProducts={setFilteredProducts}
             >
               <Routes>
-                <Route path="/shop" element={<Shop />} />
-                <Route index element={<Homepage />} />
+                <Route
+                  path="/shop"
+                  element={<Shop filteredProducts={filteredProducts} />}
+                />
+                <Route
+                  index
+                  element={
+                    filteredProducts.length > 0 ? (
+                      <Searchfiltered filteredProducts={filteredProducts} />
+                    ) : (
+                      <Homepage />
+                    )
+                  }
+                />
                 <Route
                   path="/cart"
                   element={

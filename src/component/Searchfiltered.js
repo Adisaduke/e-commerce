@@ -1,26 +1,26 @@
 import { React, useState, useEffect } from "react";
-import styles from "./Shop.module.css";
+import styles from "./Searchfiltered.module.css";
 import { motion } from "framer-motion";
 import PRODUCT from "./Arrays/Products";
 import { Link } from "react-router-dom";
 import FilterBar from "./Filter";
 
-const Shop = ({ filteredProducts }) => {
+const Searchfiltered = ({ filteredProducts }) => {
   console.log("Filtered Products:", filteredProducts);
 
   return (
     <>
       <div className={styles.filter_page_container}>
         <div className={styles.shop_content}>
-          {/* <div className={styles.filter_side}>
+          <div className={styles.filter_side}>
             <FilterBar />
-          </div> */}
+          </div>
           <div className={styles.newarrivals}>
             <motion.div className={styles.arrivals_headings}>
               <p>Shop</p>
             </motion.div>
             <motion.div className={styles.shop_grid}>
-              {PRODUCT.map((newArrival) => (
+              {filteredProducts.map((newArrival) => (
                 <div className={styles.eachArrivals} key={newArrival.id}>
                   <div className={styles.image_names}>
                     <Link
@@ -59,4 +59,4 @@ const Shop = ({ filteredProducts }) => {
   );
 };
 
-export default Shop;
+export default Searchfiltered;

@@ -131,6 +131,24 @@ color: rgb(255, 78, 78);
 
 }
 
+.search_container {
+    position: relative;
+  }
+  
+  .input {
+    width: 100%;
+    padding-right: 40px; /* Adjust as needed */
+  }
+  
+  .search_icon {
+    position: absolute;
+    right: 10px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+
 .cart_profile {
     display: flex;
 }
