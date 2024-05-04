@@ -7,6 +7,8 @@ import { TiThMenu } from "react-icons/ti";
 import { IoIosSearch } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import PRODUCT from "./Arrays/Products";
+import { FaChevronDown } from "react-icons/fa6";
+import { IoIosMenu } from "react-icons/io";
 
 const Header = ({
   cartItems,
@@ -67,6 +69,9 @@ const Header = ({
   }, [isLoggedIn]);
 
   const handleSearch = () => {
+    if (searchQuery.trim() === "") {
+      return;
+    }
     if (searchQuery.trim() !== "") {
       const filtered = PRODUCT.filter((product) =>
         product.product_name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -100,7 +105,7 @@ const Header = ({
           </div>
         )}
         <div className={styles.navbar_container}>
-          <div className={styles.left_side_menu}>
+          <div className={styles.top_menu_bar_container}>
             <div className={styles.shop_name}>
               {isMobile && (
                 <TiThMenu
@@ -108,6 +113,7 @@ const Header = ({
                   onClick={toggleMenu}
                 />
               )}
+
               <Link
                 to="/"
                 style={{ color: "transparent", textDecoration: "none" }}
@@ -115,26 +121,6 @@ const Header = ({
                 <p>SHOP.CO</p>
               </Link>
             </div>
-            {(!isMobile || menuOpen) && (
-              <div className={styles.menu_option}>
-                <Link
-                  style={{ color: "inherit", textDecoration: "none" }}
-                  to="shop"
-                >
-                  <p>Shop</p>
-                </Link>
-                <p>On Sale</p>
-                <p>New Arrivals</p>
-                <p>Shop</p>
-                {isLoggedOut && (
-                  <p className={styles.logout_button} onClick={LogoutHandler}>
-                    Log out
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
-          <div className={styles.right_side_menu}>
             {isMobile ? (
               <div className={styles.search_container}>
                 <IoIosSearch
@@ -164,26 +150,50 @@ const Header = ({
                 />
               </div>
             )}
-            <div className={styles.cart_profile}>
-              <Link
-                to="/cart"
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                <p>
-                  <FaShoppingCart />
-                  {cartItems.length > 0 && (
-                    <span className={styles.product_number}>
-                      {cartItems.length}
-                    </span>
-                  )}
-                </p>
-              </Link>
-              {isLoggedIn && (
-                <Link style={{ color: "inherit" }}>
+            <div>
+              <div className={styles.cart_profile}>
+                <Link
+                  to="/cart"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
                   <p>
-                    <FaUser />
+                    <FaShoppingCart />
+                    {cartItems.length > 0 && (
+                      <span className={styles.product_number}>
+                        {cartItems.length}
+                      </span>
+                    )}
                   </p>
                 </Link>
+                {isLoggedIn && (
+                  <Link style={{ color: "inherit" }}>
+                    <p>
+                      <FaUser />
+                    </p>
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className={styles.bottom_menu_option}>
+            <div>
+              {(!isMobile || menuOpen) && (
+                <div className={styles.menu_option}>
+                  <Link
+                    style={{ color: "inherit", textDecoration: "none" }}
+                    to="shop"
+                  >
+                    <p>Shop</p>
+                  </Link>
+                  <p>On Sale</p>
+                  <p>New Arrivals</p>
+                  <p>Shop</p>
+                  {isLoggedOut && (
+                    <p className={styles.logout_button} onClick={LogoutHandler}>
+                      Log out
+                    </p>
+                  )}
+                </div>
               )}
             </div>
           </div>
